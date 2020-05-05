@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Pattern</string>
+
+    <!-- Font name -->
+    <string name="Kanit_Black">Kanit-Black</string>
+    <string name="Kanit_BlackItalic">Kanit-BlackItalic</string>
+    <string name="Kanit_Bold">Kanit-Bold</string>
+    <string name="Kanit_BoldItalic">Kanit-BoldItalic</string>
+    <string name="Kanit_ExtraBold">Kanit-ExtraBold</string>
+    <string name="Kanit_ExtraBoldItalic">Kanit-ExtraBoldItalic</string>
+    <string name="Kanit_ExtraLight">Kanit-ExtraLight</string>
+    <string name="Kanit_ExtraLightItalic">Kanit-ExtraLightItalic</string>
+    <string name="Kanit_Italic">Kanit-Italic</string>
+    <string name="Kanit_Light">Kanit-Light</string>
+    <string name="Kanit_LightItalic">Kanit-LightItalic</string>
+    <string name="Kanit_Medium">Kanit-Medium</string>
+    <string name="Kanit_MediumItalic">Kanit-MediumItalic</string>
+    <string name="Kanit_Regular">Kanit-Regular</string>
+    <string name="Kanit_SemiBold">Kanit-SemiBold</string>
+    <string name="Kanit_SemiBoldItalic">Kanit-SemiBoldItalic</string>
+    <string name="Kanit_Thin">Kanit-Thin</string>
+    <string name="Kanit_ThinItalic">Kanit-ThinItalic</string>
+    <string name="Sarabun_Bold">Sarabun-Bold</string>
+    <string name="Sarabun_BoldItalic">Sarabun-BoldItalic</string>
+    <string name="Sarabun_ExtraBold">Sarabun-ExtraBold</string>
+    <string name="Sarabun_ExtraBoldItalic">Sarabun-ExtraBoldItalic</string>
+    <string name="Sarabun_ExtraLight">Sarabun-ExtraLight</string>
+    <string name="Sarabun_ExtraLightItalic">Sarabun-ExtraLightItalic</string>
+    <string name="Sarabun_Italic">Sarabun-Italic</string>
+    <string name="Sarabun_Light">Sarabun-Light</string>
+    <string name="Sarabun_LightItalic">Sarabun-LightItalic</string>
+    <string name="Sarabun_Medium">Sarabun-Medium</string>
+    <string name="Sarabun_MediumItalic">Sarabun-MediumItalic</string>
+    <string name="Sarabun_Regular">Sarabun-Regular</string>
+    <string name="Sarabun_SemiBold">Sarabun-SemiBold</string>
+    <string name="Sarabun_SemiBoldItalic">Sarabun-SemiBoldItalic</string>
+    <string name="Sarabun_Thin">Sarabun-Thin</string>
+    <string name="Sarabun_ThinItalic">Sarabun-ThinItalic</string>
+    <string name="Ionicons">Ionicons</string>
+
+    <!-- Dialog -->
+    <string name="ok">OK</string>
+
+    <!-- Response status -->
+    <string name="unable_to_connect_server">ไม่สามารถเชื่อมต่อกับระบบได้</string>
+    <string name="unable_to_connect_server_for_qr_code">ไม่สามารถเชื่อมต่อกับระบบได้ในขณะนี้ โปรดลองอีกครั้ง</string>
+
+</resources>

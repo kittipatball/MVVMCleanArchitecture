@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CustomFontTextView">
+        <attr name="fontName"/>
+    </declare-styleable>
+
+    <attr name="fontName" format="enum">
+        <enum name="Kanit_Black" value="1" />
+        <enum name="Kanit_BlackItalic" value="2" />
+        <enum name="Kanit_Bold" value="3" />
+        <enum name="Kanit_BoldItalic" value="4" />
+        <enum name="Kanit_ExtraBold" value="5" />
+        <enum name="Kanit_ExtraBoldItalic" value="6" />
+        <enum name="Kanit_ExtraLight" value="7" />
+        <enum name="Kanit_ExtraLightItalic" value="8" />
+        <enum name="Kanit_Italic" value="9" />
+        <enum name="Kanit_ExtraBoldItalicKanit_Light" value="10" />
+        <enum name="Kanit_LightItalic" value="11" />
+        <enum name="Kanit_Medium" value="12" />
+        <enum name="Kanit_MediumItalic" value="13" />
+        <enum name="Kanit_Regular" value="14" />
+        <enum name="Kanit_SemiBold" value="15" />
+        <enum name="Kanit_SemiBoldItalic" value="16" />
+        <enum name="Kanit_Thin" value="17" />
+        <enum name="Kanit_ThinItalic" value="18" />
+        <enum name="Sarabun_Bold" value="19" />
+        <enum name="Sarabun_BoldItalic" value="20" />
+        <enum name="Sarabun_ExtraBold" value="21" />
+        <enum name="Sarabun_ExtraBoldItalic" value="22" />
+        <enum name="Sarabun_ExtraLight" value="23" />
+        <enum name="Sarabun_ExtraLightItalic" value="24" />
+        <enum name="Sarabun_Italic" value="25" />
+        <enum name="Sarabun_Light" value="26" />
+        <enum name="Sarabun_LightItalic" value="27" />
+        <enum name="Sarabun_Medium" value="28" />
+        <enum name="Sarabun_MediumItalic" value="29" />
+        <enum name="Sarabun_Regular" value="30" />
+        <enum name="Sarabun_SemiBold" value="31" />
+        <enum name="Sarabun_SemiBoldItalic" value="32" />
+        <enum name="Sarabun_Thin" value="33" />
+        <enum name="Sarabun_ThinItalic " value="34" />
+        <enum name="Ionicons" value="35" />
+    </attr>
+
+</resources>
