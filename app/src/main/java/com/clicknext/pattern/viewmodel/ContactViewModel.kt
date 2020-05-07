@@ -22,7 +22,7 @@ class ContactViewModel (private val contactRepository: ContactRepository): ViewM
                 contactRepository.callServiceGetContact(Header.getHeader(activity))
             }
 
-            if(!CheckResponseStatus.checkResponseStatusError(activity , null))
+            if(!CheckResponseStatus.checkResponseStatusError(activity , response?.responseStatus))
             {
                 mResultContactLiveData.value = response
             }else{

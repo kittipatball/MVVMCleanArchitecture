@@ -6,6 +6,7 @@ import com.clicknext.pattern.connection.api.Api
 import com.clicknext.pattern.database.AppDatabase
 import com.clicknext.pattern.database.dao.ContactDao
 import com.clicknext.pattern.connection.repository.ContactRepository
+import com.clicknext.pattern.utils.Singleton
 import com.clicknext.pattern.viewmodel.ContactViewModel
 import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module
@@ -18,7 +19,7 @@ val databaseModule = module {
 
     fun provideDatabase(application: Application): AppDatabase
     {
-        return Room.databaseBuilder(application, AppDatabase::class.java, "eds.database")
+        return Room.databaseBuilder(application, AppDatabase::class.java, Singleton.DataBase.name)
             .fallbackToDestructiveMigration()
             .allowMainThreadQueries()
             .build()

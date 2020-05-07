@@ -17,17 +17,17 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
 
-        flavorDimensions "default"
-        productFlavors {
-            dev {
-                applicationId "th.or.thaipbs.intranet"
-                versionCode 1
-                versionName "1.0.0"
-                buildConfigField "String", "BUILD_VARIANT", "\"dev\""
-                proguardFile 'proguard-rules.pro'
-                resValue "string", "service_url", "http://www.mocky.io/"
-            }
+    flavorDimensions "default"
+    productFlavors {
+        dev {
+            applicationId "th.or.thaipbs.intranet"
+            versionCode 1
+            versionName "1.0.0"
+            buildConfigField "String", "BUILD_VARIANT", "\"dev\""
+            proguardFile 'proguard-rules.pro'
+            resValue "string", "service_url", "http://www.mocky.io/"
         }
     }
 
@@ -101,4 +101,7 @@ dependencies {
 
     //Secure preference
     implementation "androidx.security:security-crypto:1.0.0-rc01"
+
+    //Material
+    implementation 'com.google.android.material:material:1.2.0-alpha06'
 }

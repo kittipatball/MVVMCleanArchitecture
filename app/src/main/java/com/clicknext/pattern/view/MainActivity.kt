@@ -9,7 +9,7 @@ import com.clicknext.pattern.databinding.ActivityMainBinding
 import com.clicknext.pattern.viewmodel.ContactViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     private val mContactViewModel by viewModel<ContactViewModel>()
     private lateinit var mBinding: ActivityMainBinding
@@ -24,9 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun onClickListener() {
         mBinding.btnGetContact.setOnClickListener{
-            mBinding.pgb.visibility = View.VISIBLE
-            callServiceGetContact()
-            callServiceGetContact()
+            showLoading()
             callServiceGetContact()
         }
     }
@@ -43,7 +41,7 @@ class MainActivity : AppCompatActivity() {
             if(it?.result != null){
                 Toast.makeText(baseContext, it.result?.get(0)?.user, Toast.LENGTH_SHORT).show()
             }
-            mBinding.pgb.visibility = View.GONE
+            hideLoading()
         })
     }
 

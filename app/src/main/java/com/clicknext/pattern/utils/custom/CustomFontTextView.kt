@@ -6,7 +6,7 @@ import android.util.AttributeSet
 import android.widget.TextView
 import com.clicknext.pattern.R
 
-class CustomFontTextView : TextView {
+class CustomFontTextView : androidx.appcompat.widget.AppCompatTextView {
 
     private var customFont: String? = null
 
