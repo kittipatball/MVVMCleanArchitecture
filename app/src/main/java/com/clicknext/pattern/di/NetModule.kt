@@ -46,9 +46,9 @@ private fun certPinning(): OkHttpClient
 {
 
     val certificatePinner = CertificatePinner.Builder()
-//        .add("myexim.exim.go.th", "sha256/DRf6m3GPgSXFPsAAc/MRiWrYGRE3Mr8HmiDosj6XzZ4=")
-//        .add("myexim.exim.go.th", "sha256/VYZwGiJkq3NNo1YRI2RGiSTI1mqTWG8zDcRf1/KAN6I=")
-//        .add("myexim.exim.go.th", "sha256/du6FkDdMcVQ3u8prumAo6t3i3G27uMP2EOhR8R0at/U=")
+//        .add("mock.mock.go.th", "sha256/DRf6m3GPgSXFPsAAc/MRiWrYGRE3Mr8HmiDosj6XzZ4=")
+//        .add("mock.mock.go.th", "sha256/VYZwGiJkq3NNo1YRI2RGiSTI1mqTWG8zDcRf1/KAN6I=")
+//        .add("mock.mock.go.th", "sha256/du6FkDdMcVQ3u8prumAo6t3i3G27uMP2EOhR8R0at/U=")
         .build()
 
     return OkHttpClient.Builder()
