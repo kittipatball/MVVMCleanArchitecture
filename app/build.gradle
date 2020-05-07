@@ -11,24 +11,22 @@ android {
     buildToolsVersion "29.0.0"
     defaultConfig {
         multiDexEnabled true
-        applicationId "com.clicknext.pattern"
         minSdkVersion 23
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
 
-    flavorDimensions "default"
-    productFlavors {
-        dev {
-            applicationId "th.or.thaipbs.intranet"
-            versionCode 1
-            versionName "1.0.0"
-            buildConfigField "String", "BUILD_VARIANT", "\"dev\""
-            proguardFile 'proguard-rules.pro'
-            resValue "string", "service_url", "http://www.mocky.io/"
+        flavorDimensions "default"
+        productFlavors {
+            dev {
+                applicationId "com.clicknext.pattern"
+                versionCode 1
+                versionName "1.0.0"
+                buildConfigField "String", "BUILD_VARIANT", "\"dev\""
+                proguardFile 'proguard-rules.pro'
+                resValue "string", "service_url", "http://www.mocky.io/"
+            }
         }
+
     }
 
     buildTypes {
