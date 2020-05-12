@@ -1,11 +1,13 @@
 package com.clicknext.pattern.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.clicknext.pattern.databinding.ActivityMainBinding
+import com.clicknext.pattern.sharedPreferences
 import com.clicknext.pattern.viewmodel.ContactViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -20,6 +22,11 @@ class MainActivity : BaseActivity() {
         initView()
         onClickListener()
         attachObserver()
+
+        sharedPreferences.setStringSharedPreference("KEY_HELLO","say hi")
+
+        Log.d("tag","sharedPreferences: ${sharedPreferences.getStringSharedPreference("KEY_HELLO")}")
+
     }
 
     private fun onClickListener() {
