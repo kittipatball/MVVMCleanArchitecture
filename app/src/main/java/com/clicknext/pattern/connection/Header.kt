@@ -15,9 +15,10 @@ object Header {
         val hashMap = HashMap<String , String?>()
         if(context != null)
         {
-            hashMap["token"] = SecurePreferences.getStringSharedPreference(context, SecurePreferences.PREF_TOKEN)
+            val securePreferences: SecurePreferences = SecurePreferences(context)
+            hashMap["token"] = securePreferences.getStringSharedPreference(context, SecurePreferences.PREF_TOKEN)
             hashMap["version"] = BuildConfig.VERSION_NAME
-            hashMap["language"] = SecurePreferences.getStringSharedPreference(
+            hashMap["language"] = securePreferences.getStringSharedPreference(
                 context,
                 SecurePreferences.PREF_LANGUAGE)
         }

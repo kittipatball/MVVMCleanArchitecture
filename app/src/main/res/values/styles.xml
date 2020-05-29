@@ -6,6 +6,11 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="fontFamily">@font/default_kanit</item>
+    </style>
+    
+    <style name="SarabunStyle">
+        <item name="fontFamily">@font/default_sarabun</item>
     </style>
 
 </resources>

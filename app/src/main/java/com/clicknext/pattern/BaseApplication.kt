@@ -5,19 +5,19 @@ import com.clicknext.pattern.di.databaseModule
 import com.clicknext.pattern.di.netModule
 import com.clicknext.pattern.di.repositoryModule
 import com.clicknext.pattern.di.viewModelModule
-import com.clicknext.pattern.utils.SecurePreferences2
+import com.clicknext.pattern.utils.SecurePreferences
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 
-val sharedPreferences : SecurePreferences2 by lazy {
+val sharedPreferences : SecurePreferences by lazy {
     BaseApplication.prefs!!
 }
 
 class BaseApplication : Application() {
 
     companion object{
-        var prefs : SecurePreferences2? = null
+        var prefs : SecurePreferences? = null
     }
 
     override fun onCreate()
@@ -28,7 +28,7 @@ class BaseApplication : Application() {
             androidContext(this@BaseApplication)
             modules(listOf(viewModelModule, repositoryModule, netModule, databaseModule))
 
-            prefs = SecurePreferences2(this@BaseApplication)
+            prefs = SecurePreferences(this@BaseApplication)
         }
     }
 }
