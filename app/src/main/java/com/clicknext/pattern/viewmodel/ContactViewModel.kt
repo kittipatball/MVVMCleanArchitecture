@@ -19,20 +19,16 @@ class ContactViewModel (private val contactRepository: ContactRepository): ViewM
     override val coroutineContext: CoroutineContext
         get() = job + Dispatchers.Main
 
-    fun callServiceGetContact(activity: Activity?)
+    fun callServiceGetContact(header: HashMap<String, String?>)
     {
         launch {
             val response: ResultContact? = withContext(Dispatchers.IO)
             {
-                contactRepository.callServiceGetContact(Header.getHeader(activity))
+                contactRepository.callServiceGetContact(header)
             }
 
-            if(!CheckResponseStatus.checkResponseStatusError(activity , response?.responseStatus))
-            {
-                mResultContactLiveData.value = response
-            }else{
-                mResultContactLiveData.value = null
-            }
+            mResultContactLiveData.value = response
+
         }
     }
 }

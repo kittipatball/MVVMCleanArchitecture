@@ -6,6 +6,8 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.clicknext.pattern.connection.CheckResponseStatus
+import com.clicknext.pattern.connection.Header
 import com.clicknext.pattern.databinding.ActivityExampleBinding
 import com.clicknext.pattern.view.BaseActivity
 import com.clicknext.pattern.view.example.adapter.ExampleAdapter
@@ -101,8 +103,10 @@ class ExampleActivity : BaseActivity() {
     private fun attachObserver() {
         mContactViewModel.mResultContactLiveData.observe(this, Observer
         {
-            if (it?.result != null) {
-                Toast.makeText(this@ExampleActivity , it.result?.get(0)?.user , Toast.LENGTH_SHORT).show()
+
+            if(!CheckResponseStatus.checkResponseStatusError(this@ExampleActivity , it?.responseStatus))
+            {
+                Toast.makeText(this@ExampleActivity , it?.result?.get(0)?.user , Toast.LENGTH_SHORT).show()
             }
             hideLoading()
         })
@@ -110,6 +114,6 @@ class ExampleActivity : BaseActivity() {
 
     private fun callServiceGetContact() {
         showLoading()
-        mContactViewModel.callServiceGetContact(this)
+        mContactViewModel.callServiceGetContact(Header.getHeader(this@ExampleActivity))
     }
 }
