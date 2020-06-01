@@ -42,24 +42,24 @@ open class BaseFragment : Fragment(){
 
     open fun showLoading(context: Context) {
         hideLoading()
-        BaseActivity.mProgressDialog = ProgressDialog(context)
-        BaseActivity.mProgressDialog?.show()
+        mProgressDialog = ProgressDialog(context)
+        mProgressDialog?.show()
     }
 
     open fun hideLoading() {
-        if (BaseActivity.mProgressDialog != null && BaseActivity.mProgressDialog!!.isShowing) {
-            BaseActivity.mProgressDialog?.dismiss()
+        if (mProgressDialog != null && mProgressDialog!!.isShowing) {
+            mProgressDialog?.dismiss()
         }
     }
 
     open fun requestPermissions(requestCode: Int,
                                 permissionList: Array<String>,
-                                listener: BaseActivity.OnRequestPermissionsListener
+                                listener: OnRequestPermissionsListener
     )
     {
-        if(BaseActivity.mOnRequestPermissionsListener == null && activity != null)
+        if(mOnRequestPermissionsListener == null && activity != null)
         {
-            BaseActivity.mOnRequestPermissionsListener = listener
+            mOnRequestPermissionsListener = listener
             val missingPermissions: MutableList<String> = ArrayList()
 
             for (permission in permissionList)
@@ -81,7 +81,8 @@ open class BaseFragment : Fragment(){
                     dialog.setMessage("Open setting for request permissions. Because selected never ask again.")
                     dialog.onClickButtonListener(View.OnClickListener {
                         dialog.dismiss()
-                        displaySettingApp(BaseActivity.REQUEST_CODE_SETTING)
+                        clearOnRequestPermissionsListener()
+                        displaySettingApp(REQUEST_CODE_SETTING)
                     })
                     dialog.show()
                     return
@@ -95,7 +96,7 @@ open class BaseFragment : Fragment(){
                 ActivityCompat.requestPermissions(this@BaseFragment.requireActivity(), permissions, requestCode)
             }
 
-            BaseActivity.mOnRequestPermissionsListener = null
+            clearOnRequestPermissionsListener()
         }
     }
 
@@ -116,8 +117,12 @@ open class BaseFragment : Fragment(){
             }
         }
 
-        mOnRequestPermissionsListener = null
+        clearOnRequestPermissionsListener()
 
+    }
+
+    private fun clearOnRequestPermissionsListener(){
+        mOnRequestPermissionsListener = null
     }
 
     open fun displaySettingApp(requestCode: Int){

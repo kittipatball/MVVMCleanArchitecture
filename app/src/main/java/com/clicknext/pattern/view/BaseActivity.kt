@@ -98,6 +98,7 @@ open class BaseActivity : AppCompatActivity() {
                     dialog.setMessage("Open setting for request permissions. Because selected never ask again.")
                     dialog.onClickButtonListener(View.OnClickListener {
                         dialog.dismiss()
+                        clearOnRequestPermissionsListener()
                         displaySettingApp(REQUEST_CODE_SETTING)
                     })
                     dialog.show()
@@ -112,8 +113,12 @@ open class BaseActivity : AppCompatActivity() {
                 ActivityCompat.requestPermissions(this, permissions, requestCode)
             }
 
-            mOnRequestPermissionsListener = null
+            clearOnRequestPermissionsListener()
         }
+    }
+
+    private fun clearOnRequestPermissionsListener(){
+        mOnRequestPermissionsListener = null
     }
 
     override fun onRequestPermissionsResult(requestCode: Int,
