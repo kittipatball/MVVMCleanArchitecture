@@ -19,12 +19,12 @@ class ContactViewModel (private val contactRepository: ContactRepository): ViewM
     override val coroutineContext: CoroutineContext
         get() = job + Dispatchers.Main
 
-    fun callServiceGetContact(header: HashMap<String, String?>)
+    fun callServiceGetContact()
     {
         launch {
             val response: ResultContact? = withContext(Dispatchers.IO)
             {
-                contactRepository.callServiceGetContact(header)
+                contactRepository.callServiceGetContact(Header.getHeader())
             }
 
             mResultContactLiveData.value = response

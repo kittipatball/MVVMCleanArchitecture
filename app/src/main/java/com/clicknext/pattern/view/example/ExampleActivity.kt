@@ -114,6 +114,6 @@ class ExampleActivity : BaseActivity() {
 
     private fun callServiceGetContact() {
         showLoading()
-        mContactViewModel.callServiceGetContact(Header.getHeader(this@ExampleActivity))
+        mContactViewModel.callServiceGetContact()
     }
 }
