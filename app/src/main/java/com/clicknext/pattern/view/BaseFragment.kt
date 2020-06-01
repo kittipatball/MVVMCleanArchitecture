@@ -20,6 +20,14 @@ open class BaseFragment : Fragment(){
 
     companion object {
         var mProgressDialog: ProgressDialog? = null
+        var mOnRequestPermissionsListener: OnRequestPermissionsListener? = null
+        const val REQUEST_CODE_SETTING = 9001
+    }
+
+    interface OnRequestPermissionsListener
+    {
+        fun onPermissionGranted()
+        fun onPermissionDenied(message: String?)
     }
 
     open fun setPagerSnapHelper(recyclerView: RecyclerView){
@@ -56,7 +64,7 @@ open class BaseFragment : Fragment(){
 
             for (permission in permissionList)
             {
-                val result = ContextCompat.checkSelfPermission(activity!!, permission)
+                val result = ContextCompat.checkSelfPermission(this@BaseFragment.requireContext(), permission)
                 if (result != PackageManager.PERMISSION_GRANTED)
                 {
                     missingPermissions.add(permission)
@@ -69,7 +77,7 @@ open class BaseFragment : Fragment(){
                     // or open another dialog explaining
                     // again the permission and directing to
                     // the app setting
-                    val dialog = OneButtonDialog(activity!!)
+                    val dialog = OneButtonDialog(this@BaseFragment.requireContext())
                     dialog.setMessage("Open setting for request permissions. Because selected never ask again.")
                     dialog.onClickButtonListener(View.OnClickListener {
                         dialog.dismiss()
@@ -84,11 +92,32 @@ open class BaseFragment : Fragment(){
             {
                 val permissions = missingPermissions
                     .toTypedArray()
-                ActivityCompat.requestPermissions(activity!!, permissions, requestCode)
+                ActivityCompat.requestPermissions(this@BaseFragment.requireActivity(), permissions, requestCode)
             }
 
             BaseActivity.mOnRequestPermissionsListener = null
         }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int,
+                                            permissions: Array<String>,
+                                            grantResults: IntArray)
+    {
+
+        for (i in permissions.indices){
+            if (grantResults[i] != PackageManager.PERMISSION_GRANTED)
+            {
+                mOnRequestPermissionsListener?.onPermissionDenied("Required permission '" + permissions[i] + "' not granted, exiting")
+                break
+            }
+            else if(i == permissions.size)
+            {
+                mOnRequestPermissionsListener?.onPermissionGranted()
+            }
+        }
+
+        mOnRequestPermissionsListener = null
+
     }
 
     open fun displaySettingApp(requestCode: Int){
